@@ -69,6 +69,26 @@ export default {
   }
 };
 </script>
-
 <style>
+.box {
+  width: 100%;
+  height: 100%;
+  background: #2c3742;
+  position: relative;
+}
+
+.content {
+  width: 500px;
+  padding: 40px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+.mybtn {
+  width: 100%;
+}
 </style>

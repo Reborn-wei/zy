@@ -1,9 +1,7 @@
 <template>
   <el-row>
     <el-col :span="6">
-      <div>
-        <img src="@/assets/images/logo.png">
-      </div>
+      <div></div>
     </el-col>
     <el-col :span="12">
       <div class="e-h-title">后台管理系统</div>
