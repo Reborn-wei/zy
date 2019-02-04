@@ -27,48 +27,46 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       loginObj: {
-        username: "",
-        password: ""
+        username: '',
+        password: ''
       },
       rules: {
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
-          { min: 3, max: 10, message: "长度在 3 到 5 个字符", trigger: "blur" }
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { min: 3, max: 10, message: '长度在3到10个字符', trigger: 'blur' }
         ],
-        password: [{ required: true, message: "请输入密码", trigger: "blur" }]
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
       }
-    };
+    }
   },
   methods: {
-    login() {
-      this.$refs.loginRule.validate(async valid => {
+    login () {
+      this.$refs.loginRule.validate(async (valid) => {
         if (valid) {
-          var res = await this.$http.post("/login", this.loginObj);
-          var { meta, data } = res.data;
+          var res = await this.$http.post('/login', this.loginObj)
+          var {meta, data} = res.data
           if (meta.status === 200) {
             this.$message({
               message: meta.msg,
-              type: "success"
-            });
-            // 保存登录信息可以使用 localstorage
-            // 保存 token
-            window.localStorage.setItem("token", data.token);
-            // 跳转到首页
-            this.$router.push("/home");
+              type: 'success'
+            })
+            window.localStorage.setItem('token', data.token)
+            this.$router.push('/home')
           } else {
-            this.$message.error(meta.msg);
+            this.message.error(meta.msg)
           }
         } else {
-          this.$message.error("参数不合法");
+          this.$message.error('参数不合法')
         }
-      });
+      })
     }
   }
-};
+}
 </script>
+
 <style>
 .box {
   width: 100%;
@@ -87,7 +85,6 @@ export default {
   transform: translate(-50%, -50%);
   border-radius: 10px;
 }
-
 .mybtn {
   width: 100%;
 }

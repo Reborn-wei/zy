@@ -4,17 +4,20 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
-import myaxios from 'axios'
-
+import Bread from '@/layout/bread.vue'
+import myaxios from '@/assets/js/myaxios.js'
 import 'element-ui/lib/theme-chalk/index.css'
+import '@/assets/css/index.css'
 Vue.use(ElementUI)
-Vue.ues(myaxios)
+Vue.use(myaxios)
+Vue.component(Bread.name, Bread)
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })
